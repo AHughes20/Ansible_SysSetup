@@ -1,11 +1,13 @@
 ---
 - name: getting OS
   hosts: linux_devices
+  gather_facts: no
+ # become: no
   tasks:
     - name: strating
       ansible.builtin.setup:
         gather_subset: os_family
-    
+
     - name: showing
       debug:
-        msg: "{{ ansible_facts['os_family'] }}"
+        msg: "{{ ansible_os_family }}"

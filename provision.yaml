@@ -1,29 +1,29 @@
 ---
 - name: Gather Linux Devices
   hosts: linux_devices
+  gather_facts: yes
+#  become: no
   tasks:
-    - name: gathering
-      ansible.legacy.setup:
-
-    - name: show hostname
-      debug:
-        msg: " {{ inventory_hostname }}"
-      when: ansible_facts['os_family'] == 'RedHat'
+   # - name: show hostname
+    #  debug:
+     #   msg: " {{ inventory_hostname }}"
+      #become: yes
+      #when: ansible_facts['os_family'] == 'RedHat'
 
     - name: debshow hostname
+     # become: no
       debug:
         msg: "{{ inventory_hostname }}"
-      become: no
-      when: ansible_facts['os_family'] == 'Ubuntu'
+      when: ansible_facts['os_family'] == 'Debian'
 
-- name: Gather Cisco devices
-  hosts: cisco_devices
-  gather_facts: no
-  tasks:
-    - name: get facts
-      ios_facts:
-
-    - name: display facts
-      debug:
-        msg: "{{ inventory_hostname }} -> {{ ansible_net_hostname }}"
+#- name: Gather Cisco devices
+ # hosts: cisco_devices
+ # gather_facts: no
+ # tasks:
+  #  - name: get facts
+   #   ios_facts:
+#
+   # - name: display facts
+    #  debug:
+     #   msg: "{{ inventory_hostname }}"
       
