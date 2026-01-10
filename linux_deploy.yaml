@@ -1,8 +1,7 @@
 ---
 - name: Getting Devices
   hosts: linux_devices
-  gather_facts: no
- # become: no
+  gather_facts: yes
   tasks:
     - name: Gathering Info
       ansible.builtin.setup:
