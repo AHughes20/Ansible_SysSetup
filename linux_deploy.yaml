@@ -3,10 +3,21 @@
   hosts: linux_devices
   gather_facts: yes
   tasks:
-    - name: Gathering Info
-      ansible.builtin.setup:
-        gather_subset: os_family
+    ### updateing packages
+#    - name: System update
+ #     ansible.builtin.dnf:
+  #      name: "*"
+   #     state: "latest"
+   
+    - name: Creating user groups
+      ansible.builtin.group:
+        name: "{{ item }}"
+      loop:
+        - "admin"
+        - "eng"
+        - "hr"
+  
+      ### config groups (admin, engineering, hr)
+  
 
-    - name: Displaying Info
-      debug:
-        msg: "{{ ansible_os_family }}"
+      ### configure users for preset groups 
