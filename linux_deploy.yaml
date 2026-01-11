@@ -11,11 +11,15 @@
    
     - name: Creating user groups
       ansible.builtin.group:
-        name: "{{ item }}"
+        name: "{{ item.name }}"
+        gid: "{{ item.gid }}"
       loop:
-        - "admin"
-        - "eng"
-        - "hr"
+        - name: admin
+          gid: 12345
+        - name: eng
+          gid: 23456
+        - name: hr
+          gid: 34567
   
       ### config groups (admin, engineering, hr)
   
