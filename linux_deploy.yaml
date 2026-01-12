@@ -1,4 +1,4 @@
----
+--
 - name: Getting Devices
   hosts: linux_devices
   gather_facts: yes
@@ -22,6 +22,8 @@
           gid: 34567
   
       ### config groups (admin, engineering, hr)
-  
+      #- name: Create admin account
+      # ansible.builtin.user:
+         
 
       ### configure users for preset groups 
