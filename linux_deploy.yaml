@@ -21,9 +21,16 @@
         - name: hr
           gid: 34567
   
-      ### config groups (admin, engineering, hr)
-      #- name: Create admin account
-      # ansible.builtin.user:
-         
+    ### creates a single admin account for management ###
+    - name: Create admin account
+      ansible.builtin.user:
+        password: $6$.tsHTsq9F7hTYiW2$pJa8uufg0P.QWkhzcPdjF1wqSWBho5nNYCwMXev.A4OnAJGiCMXM4v9ng3T4DwzwWf5ZavsRtLUhy6Zxp266B.           
+        shell: /bin/bash
+        uid: 2020
+        create_home: true
+        name: admin2
+        append: true
+        groups: wheel
 
       ### configure users for preset groups 
+
